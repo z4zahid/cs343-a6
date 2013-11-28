@@ -2,8 +2,8 @@
 #define _BOTTLING_GUARD
 
 #include <uC++.h>
-class Printer;
-_Task NameServer;
+#include "printer.h"
+#include "nameServer.h"
 
 _Task BottlingPlant {
     void main();

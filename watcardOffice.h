@@ -5,8 +5,7 @@
 #include "bank.h"
 #include "uFuture.h"
 #include "watcard.h"
-
-class Printer;
+#include "printer.h"
 
 _Task WATCardOffice {
 

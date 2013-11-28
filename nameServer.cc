@@ -6,6 +6,11 @@ NameServer::NameServer( Printer &prt, unsigned int numVendingMachines, unsigned 
 
 }
 
+void NameServer::main() {
+
+}
+
+
 void NameServer::VMregister( VendingMachine *vendingmachine ) {
 
 }

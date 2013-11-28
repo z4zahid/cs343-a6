@@ -4,7 +4,7 @@
 #include <uC++.h>
 #include "watcard.h"
 #include "nameServer.h"
-class Printer;
+#include "printer.h"
 
 _Task VendingMachine {
     void main();

@@ -1,10 +1,13 @@
 ﻿#include "watcardOffice.h"
-#include "printer.h"
 
 //the couriers are created by theWATCard office
 
                      
 WATCardOffice::WATCardOffice( Printer &prt, Bank &bank, unsigned int numCouriers ) {
+
+}
+
+void WATCardOffice::main() {
 
 }
 

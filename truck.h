@@ -3,8 +3,8 @@
 
 #include <uC++.h>
 #include "bottlingPlant.h"
-class Printer;
-_Task NameServer;
+#include "printer.h"
+#include "nameServer.h"
 
 _Task Truck {
     void main();

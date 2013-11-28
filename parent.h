@@ -3,8 +3,7 @@
 
 #include <uC++.h>
 #include "bank.h"
-
-class Printer;
+#include "printer.h"
 
 _Task Parent {
     void main();

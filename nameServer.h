@@ -2,7 +2,7 @@
 #define _NAMESERVER_GUARD
 
 #include <uC++.h>
-class Printer;
+#include "printer.h"
 _Task VendingMachine;
 
 _Task NameServer {

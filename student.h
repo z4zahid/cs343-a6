@@ -3,8 +3,8 @@
 
 #include <uC++.h>
 #include "watcardOffice.h"
-class Printer;
-_Task NameServer;
+#include "printer.h"
+#include "nameServer.h"
 
 _Task Student {
     void main();
