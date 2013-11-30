@@ -92,6 +92,7 @@ void uMain::main() {
     delete parent;
     delete bank;
     delete printer;
+    delete infile;
 
     cout << "***********************" << endl;
     
