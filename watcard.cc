@@ -1,6 +1,6 @@
-﻿#include "WATCard.h"
+﻿#include "watcard.h"
 
-WATCard() {
+WATCard::WATCard() {
 
 }
 

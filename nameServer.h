@@ -4,9 +4,16 @@
 #include <uC++.h>
 #include "printer.h"
 _Task VendingMachine;
+#include <vector>;
 
 _Task NameServer {
     void main();
+    Printer* printer;
+    unsigned int numVendingMachines;
+    unsigned int numStudents;
+    VendingMachine** machineList;
+    std::vector<int> studentMachine;
+    int registeredMachineCounter;
   public:
   	~NameServer();
     NameServer( Printer &prt, unsigned int numVendingMachines, unsigned int numStudents );
