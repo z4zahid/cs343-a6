@@ -40,11 +40,9 @@ void Student::main() {
                     randBottles--;
                     break;
 
-                }
-                else if (status==VendingMachine::FUNDS) {
+                } else if (status==VendingMachine::FUNDS) {
                     card = cardOffice->transfer(id,sodaCost+5,card);
-                }
-                else if (status==VendingMachine::STOCK) {
+                } else if (status==VendingMachine::STOCK) {
                     machine=nameServer->getMachine(id);
                 }
             } catch(WATCardOffice::Lost) {
