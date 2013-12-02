@@ -53,7 +53,7 @@ void BottlingPlant::main() {
 
 bool BottlingPlant::getShipment( unsigned int cargo[] ) {
 
-	if (plantClosingDown && shipmentWasPickedUp) {
+	if (plantClosingDown) {
 		//plant is closing down and cargo is not changed 
 		return true;
 	}
