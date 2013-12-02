@@ -5,6 +5,7 @@
 #include "uFuture.h"
 
 class WATCard {
+    int balance;
     WATCard( const WATCard & );            // prevent copying
     WATCard &operator=( const WATCard & );
   public:

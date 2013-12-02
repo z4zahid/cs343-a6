@@ -2,8 +2,10 @@
 #define _BANK_GUARD
 
 #include <uC++.h>
+#include <vector>
 
 _Monitor Bank {
+    std::vector<int>studentBalances;
   public:
   	~Bank();
     Bank( unsigned int numStudents );

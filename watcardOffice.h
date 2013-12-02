@@ -19,10 +19,17 @@ _Task WATCardOffice {
         Job( Args args ) : args( args ) {}
     };
     _Task Courier {
-        
+        void main();
+        public:
+            ~Courier();
+            Courier();
     };                 // communicates with bank
 
     void main();
+    Printer *prt;
+    Bank *bank; 
+    int numCouriers;
+
   public:
     ~WATCardOffice();
     _Event Lost {};                        // uC++ exception type, like "struct"

@@ -4,8 +4,13 @@
 #include <uC++.h>
 #include "bank.h"
 #include "printer.h"
+#include "MPRNG.h"
 
 _Task Parent {
+	int delay;
+	Printer *prt;
+	Bank *bank;
+	int numStudents; 
     void main();
   public:
   	~Parent();

@@ -5,9 +5,17 @@
 #include "watcardOffice.h"
 #include "printer.h"
 #include "nameServer.h"
+#include "MPRNG.h"
+
 
 _Task Student {
     void main();
+    Printer *prt;
+    NameServer *nameServer;
+    WATCardOffice *cardOffice;
+    unsigned int id;
+    unsigned int maxPurchases;
+
   public:
   	~Student();
     Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id,
@@ -15,7 +23,6 @@ _Task Student {
 };
 
 #endif
-
 
 
 
