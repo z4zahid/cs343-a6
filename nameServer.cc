@@ -9,6 +9,7 @@ NameServer::NameServer( Printer &prt, unsigned int numVendingMachines_, unsigned
 	printer = &prt;
 	numVendingMachines = numVendingMachines_;
 	numStudents = numStudents_;
+	machineList = new VendingMachine*[numVendingMachines];
 	studentMachine.resize(numStudents);
 	registeredMachineCounter = 0;
 }
