@@ -27,7 +27,7 @@ void Student::main() {
     while (randBottles>=0) {
 
         machine = nameServer->getMachine(id);
-        prt->print(Printer::Student,'V',machine->getId());    
+        prt->print(Printer::Student,id,'V',machine->getId());    
 
         yield(mprng(1,10));
 
@@ -39,7 +39,7 @@ void Student::main() {
             try { 
                 if (status==VendingMachine::BUY) {
                     int balance = (card())->getBalance();
-                    prt->print(Printer::Student,'B',balance); 
+                    prt->print(Printer::Student,id,'B',balance); 
                     randBottles--;
                     break;
 
@@ -50,14 +50,14 @@ void Student::main() {
                 }
             } catch(WATCardOffice::Lost) {
                 //In case of WATCardOffice::Lost exception
-                prt->print(Printer::Student,'L');
+                prt->print(Printer::Student,id,'L');
                 card = cardOffice->create(id,5);
                 status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
             }
         }
         
     }
-    prt->print(Printer::Student,'F');
+    prt->print(Printer::Student,id,'F');
 }
 
 
