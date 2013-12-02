@@ -35,8 +35,8 @@ void Student::main() {
         int sodaCost=machine->cost(); 
        
         while (true) {
-            VendingMachine::Status status=machine->buy((VendingMachine::Flavours)randFlavour,*(card()));
             try { 
+                VendingMachine::Status status=machine->buy((VendingMachine::Flavours)randFlavour,*(card()));
                 if (status==VendingMachine::BUY) {
                     int balance = (card())->getBalance();
                     prt->print(Printer::Student,id,'B',balance); 
