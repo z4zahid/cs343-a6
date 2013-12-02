@@ -1,4 +1,6 @@
 ﻿#include "watcardOffice.h"
+#include <iostream>
+
 using namespace std;
 
 //Courier
@@ -29,6 +31,7 @@ void WATCardOffice::Courier::main(){
 
 		prt->print(Printer::Courier,'t',job->args.sid,job->args.amt);
 		bank->withdraw(job->args.sid,job->args.amt);
+
 		card->deposit(job->args.amt);
 		prt->print(Printer::Courier,'T',job->args.sid,job->args.amt);
 
@@ -88,6 +91,7 @@ WATCard::FWATCard WATCardOffice::transfer( unsigned int sid, unsigned int amount
 	Args args;
 	args.sid=sid;
 	args.amt=amount;
+	args.card=card;
 	Job *job=new Job(args);
 	jobsList.push_back(job);
 	jobCondition.signal();
