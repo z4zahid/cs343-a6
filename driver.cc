@@ -49,6 +49,7 @@ void uMain::main() {
     int seed = (argc > 2)? atoi(argv[2]): time(NULL);
     if (seed <= 0) {
         cout << errorMessage <<endl;
+        delete infile;
         return;
     }
     rng.seed(seed);
@@ -58,7 +59,7 @@ void uMain::main() {
 
     Printer* printer = new Printer(params.numStudents, params.numVendingMachines, params.numCouriers);
     Bank* bank = new Bank(params.numStudents);
-    Parent* parent = new Parent(*printer, *bank, params.numStudents, params.parentalDelay);
+    Parent *parent = new Parent(*printer, *bank, params.numStudents, params.parentalDelay);
     WATCardOffice *office = new WATCardOffice(*printer, *bank, params.numCouriers);
     NameServer* server = new NameServer(*printer, params.numVendingMachines, params.numStudents);
     
@@ -80,6 +81,7 @@ void uMain::main() {
         delete students[i];
     }
 
+    delete parent;
     //delete the bottling plant before deleting the vending machines
     delete plant;
     
@@ -89,7 +91,6 @@ void uMain::main() {
 
     delete server;
     delete office;
-    delete parent;
     delete bank;
     delete printer;
     delete infile;
