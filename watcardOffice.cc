@@ -22,11 +22,12 @@ void WATCardOffice::Courier::main(){
 	
 	for (;;){
 
-		if (office->isOfficeClosed) {
+		WATCardOffice::Job *job=office->requestWork();
+		
+		if (office->isOfficeClosed || job == NULL) {
 			break;
 		}
 
-		WATCardOffice::Job *job=office->requestWork();
 		WATCard* card = job->args.card;
 
 		prt->print(Printer::Courier,'t',job->args.sid,job->args.amt);
@@ -101,8 +102,12 @@ WATCard::FWATCard WATCardOffice::transfer( unsigned int sid, unsigned int amount
 
 WATCardOffice::Job *WATCardOffice::requestWork() {
 	
-	while(jobsList.size() ==0) {
+	while(jobsList.size() ==0 && !isOfficeClosed) {
 		jobCondition.wait();
+	}
+
+	if (isOfficeClosed) {
+		return NULL;
 	}
 
 	prt->print(Printer::WATCardOffice,'W');
