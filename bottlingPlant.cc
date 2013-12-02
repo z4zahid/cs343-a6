@@ -42,7 +42,6 @@ void BottlingPlant::main() {
 		}
 
 		_Accept(~BottlingPlant) {
-			plantClosingDown = true;
 			break;
 		} or _When(!shipmentWasPickedUp) _Accept(getShipment) {
 			yield(timeBetweenShipments);
@@ -69,6 +68,8 @@ bool BottlingPlant::getShipment( unsigned int cargo[] ) {
 }
 
 BottlingPlant::~BottlingPlant() {
+	plantClosingDown = true;
+	_Accept(getShipment);
 	delete truck;
 	delete shipment;
 }

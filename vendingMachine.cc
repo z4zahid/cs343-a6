@@ -33,7 +33,7 @@ void VendingMachine::main() {
 
 		}
 	}
-	printer->print(Printer::Vending, 'F');
+	printer->print(Printer::Vending, id, 'F');
 }
 
 VendingMachine::Status VendingMachine::buy(Flavours flavour, WATCard &card) {
