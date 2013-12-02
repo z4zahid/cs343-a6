@@ -52,7 +52,6 @@ void Student::main() {
                 //In case of WATCardOffice::Lost exception
                 prt->print(Printer::Student,id,'L');
                 card = cardOffice->create(id,5);
-                status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
             }
         }
         
