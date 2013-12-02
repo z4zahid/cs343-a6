@@ -1,7 +1,9 @@
 ﻿#include "student.h"
 #include "vendingMachine.h"
 #include "watcard.h"
+#include <iostream>
 
+using namespace std;
 Student::Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id,
              unsigned int maxPurchases ) {
 	Student::prt=&prt;
@@ -17,8 +19,9 @@ void Student::main() {
     int randBottles=mprng(1,maxPurchases);                                 
     int randFlavour=mprng(3);                                  
     
-    prt->print(Printer::Student,'S',randFlavour,randBottles);    
+    prt->print(Printer::Student,id,'S',randFlavour,randBottles);  
     WATCard::FWATCard card=cardOffice->create(id,5);
+
     VendingMachine *machine;
 
     while (randBottles>=0) {
