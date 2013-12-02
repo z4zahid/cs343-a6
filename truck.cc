@@ -78,6 +78,6 @@ bool Truck::isMoreSodaInStock() {
 }
 
 Truck::~Truck() {
-	delete cargo;
+	delete []cargo;
 }
 

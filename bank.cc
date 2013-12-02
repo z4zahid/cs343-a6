@@ -24,5 +24,5 @@ void Bank::withdraw( unsigned int id, unsigned int amount ) {
 }
 
 Bank::~Bank() {
-	delete sufficientFunds;
+	delete []sufficientFunds;
 }

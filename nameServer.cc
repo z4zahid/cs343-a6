@@ -52,5 +52,5 @@ VendingMachine** NameServer::getMachineList()  {
 }
 
 NameServer::~NameServer() {
-
+	delete []machineList;
 }

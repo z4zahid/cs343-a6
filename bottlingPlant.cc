@@ -71,7 +71,7 @@ BottlingPlant::~BottlingPlant() {
 	plantClosingDown = true;
 	_Accept(getShipment);
 	delete truck;
-	delete shipment;
+	delete []shipment;
 }
 
 
