@@ -97,16 +97,15 @@ WATCard::FWATCard WATCardOffice::transfer( unsigned int sid, unsigned int amount
 
 WATCardOffice::Job *WATCardOffice::requestWork() {
 	
-	if (jobsList.size()>0)
-	{
-		prt->print(Printer::WATCardOffice,'W');
-		Job* job = jobsList[0];
-		jobsList.erase(jobsList.begin());
-		return job; 
-	}
-	else {
+	while(jobsList.size() ==0) {
 		jobCondition.wait();
 	}
+
+	prt->print(Printer::WATCardOffice,'W');
+	Job* job = jobsList[0];
+	jobsList.erase(jobsList.begin());
+	return job; 
+	
 }
 
 WATCardOffice::~WATCardOffice() {
