@@ -35,7 +35,7 @@ void Student::main() {
         int sodaCost=machine->cost(); 
        
         while (true) {
-            VendingMachine::Status status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
+           VendingMachine::Status status=machine->buy((VendingMachine::Flavours)randFlavour,*(card());
             try { 
                 if (status==VendingMachine::BUY) {
                     int balance = (card())->getBalance();
@@ -44,7 +44,7 @@ void Student::main() {
                     break;
 
                 } else if (status==VendingMachine::FUNDS) {
-                    card = cardOffice->transfer(id,sodaCost+5,card);
+                    card = cardOffice->transfer(id,sodaCost+5,card());
                 } else if (status==VendingMachine::STOCK) {
                     machine=nameServer->getMachine(id);
                 }
