@@ -43,6 +43,7 @@ void WATCardOffice::Courier::main(){
 		} else {
 			job->result.delivery(card);
 		}
+		delete job;
 	}
 }
 
