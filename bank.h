@@ -6,6 +6,7 @@
 
 _Monitor Bank {
     std::vector<int>studentBalances;
+    uCondition* sufficientFunds;
   public:
   	~Bank();
     Bank( unsigned int numStudents );

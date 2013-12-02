@@ -26,7 +26,7 @@ void Student::main() {
         machine = nameServer->getMachine(id);
         prt->print(Printer::Student,'V',machine->getId());    
 
-        this->yield(mprng(1,10));
+        yield(mprng(1,10));
 
         int balance=(card())->getBalance();
         int sodaCost=machine->cost(); 

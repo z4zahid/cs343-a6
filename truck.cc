@@ -19,14 +19,6 @@ void Truck::initCargo() {
 	}
 }
 
-int Truck::getTotalCargoItems() {
-	int total =0;
-	for (int i=0; i<4; i++) {
-		total += cargo[i];
-	}
-	return total;
-}
-
 void Truck::main() {
 
 	printer->print(Printer::Truck, 'S');
@@ -41,7 +33,7 @@ void Truck::main() {
 		if (isPlantClosed) {
 			break; 
 		}
-		printer->print(Printer::Truck, 'P', getTotalCargoItems());
+		printer->print(Printer::Truck, 'P', getTotalSodaInStock());
 
 		int vendingMachineCount = 0;
 		while (isMoreSodaInStock() && machineList && vendingMachineCount < numVendingMachines) {
@@ -74,7 +66,11 @@ void Truck::main() {
 }
 
 unsigned int Truck::getTotalSodaInStock() {
-	return cargo[0]+cargo[1]+cargo[2]+cargo[3];
+	int total =0;
+	for (int i=0; i<4; i++) {
+		total += cargo[i];
+	}
+	return total;
 }
 
 bool Truck::isMoreSodaInStock() {

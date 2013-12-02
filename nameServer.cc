@@ -24,9 +24,9 @@ void NameServer::main() {
 	while (true) {
 		_Accept(~NameServer) {
 			break;
-		}_Accept(VMregister) {
+		} or _Accept(VMregister) {
 
-		} _When(registeredMachineCounter == (numVendingMachines-1)) _Accept(getMachine, getMachineList) {
+		} or _When(registeredMachineCounter == (numVendingMachines-1)) _Accept(getMachine, getMachineList) {
 
 		} 
 	}

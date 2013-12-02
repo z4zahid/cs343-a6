@@ -19,7 +19,6 @@ _Task Truck {
     MPRNG rng;
     unsigned int* cargo;
     void initCargo();
-    int getTotalCargoItems();
     unsigned int getTotalSodaInStock();
     bool isMoreSodaInStock();
     bool isPlantClosed;

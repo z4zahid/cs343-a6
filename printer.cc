@@ -16,7 +16,7 @@ Printer::Printer( unsigned int numStudents_, unsigned int numVendingMachines_, u
 
 void Printer::printColumnLabels() {
 
-	string columnHeaders[] = {"Parent","WATOffice","Names","Truck","Plant"}; 
+	string columnHeaders[] = {"Parent","WATOff","Names","Truck","Plant"}; 
 	for (int i=0; i<5; i++) {
 		cout << columnHeaders[i] << "\t";
 	}

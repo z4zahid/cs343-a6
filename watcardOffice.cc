@@ -1,7 +1,7 @@
 ﻿#include "watcardOffice.h"
 using namespace std;
 
-//the couriers are created by theWATCard office
+//Courier
  
 WATCardOffice::Courier::Courier(WATCardOffice &office,Printer &prt,Bank &bank){
 	prt.print(Printer::Courier,'S');
@@ -9,49 +9,61 @@ WATCardOffice::Courier::Courier(WATCardOffice &office,Printer &prt,Bank &bank){
 	Courier::prt=&prt;
     Courier::bank=&bank; 
 } 
+
 WATCardOffice::Courier::~Courier(){
 	prt->print(Printer::Courier,'F');
 } 
+
+void WATCardOffice::Courier::main(){
+
+	MPRNG mprng;
+	
+	for (;;){
+
+		if (office->isOfficeClosed) {
+			break;
+		}
+
+		WATCardOffice::Job *job=office->requestWork();
+		WATCard* card = job->args.card;
+
+		prt->print(Printer::Courier,'t',job->args.sid,job->args.amt);
+		bank->withdraw(job->args.sid,job->args.amt);
+		card->deposit(job->args.amt);
+		prt->print(Printer::Courier,'T',job->args.sid,job->args.amt);
+
+		int randN=mprng(1,6);
+		if (randN==1){										//One-sixth probability
+			delete card;
+			job->result.exception(new WATCardOffice::Lost);
+		} else {
+			job->result.delivery(card);
+		}
+	}
+}
+
+//WATCardOffice
+
 WATCardOffice::WATCardOffice( Printer &prt, Bank &bank, unsigned int numCouriers ) {
 	prt.print(Printer::WATCardOffice,'S');
 
 	WATCardOffice::prt=&prt;
     WATCardOffice::bank=&bank; 
     WATCardOffice::numCouriers=numCouriers;
-    Courier *courier =new Courier(*this,prt,bank);
+    isOfficeClosed = false;
     for (int i=0;i<numCouriers;i++){
-    	courierList.push_back(courier);
+    	courierList.push_back(new Courier(*this,prt,bank));
     }
-}                   
-void WATCardOffice::Courier::main(){
-
-	MPRNG mprng;
-	
-	for (;;){
-		Args args;
-		WATCardOffice::Job *job=office->requestWork();
-		args.sid=job->args.sid;
-		args.amt=job->args.amt;
-		args.card=job->args.card;
-
-		prt->print(Printer::Courier,'t',args.sid,args.amt);
-		bank->withdraw(args.sid,args.amt);
-		args.card->deposit(args.amt);
-		prt->print(Printer::Courier,'T',args.sid,args.amt);
-
-		int randN=mprng(1,6);
-		if (randN==1){										//One-sixth probability
-			delete job->args.card;
-			job->result.exception(new WATCardOffice::Lost);
-		}
-		job->result.delivery(job->args.card);
-	}
-} 
+}                    
 
 void WATCardOffice::main() {
 	
 	for(;;){
 		_Accept(~WATCardOffice){
+			while(!jobCondition.empty()) {
+				jobCondition.signal();
+			}
+			isOfficeClosed = true;
 			break;
 		}
 		or _Accept(create,transfer,requestWork){
@@ -61,15 +73,15 @@ void WATCardOffice::main() {
 }
 
 WATCard::FWATCard WATCardOffice::create( unsigned int sid, unsigned int amount ) {
-	WATCard *card;
 	Args args;
 	args.sid=sid;
 	args.amt=amount;
-	args.card=card;
+	args.card= new WATCard();
 	Job *job=new Job(args);
 	jobsList.push_back(job);
 	jobCondition.signal();
 	prt->print(Printer::WATCardOffice,'C',sid,amount);
+	return job->result;
 }
 
 WATCard::FWATCard WATCardOffice::transfer( unsigned int sid, unsigned int amount, WATCard *card ) {
@@ -80,6 +92,7 @@ WATCard::FWATCard WATCardOffice::transfer( unsigned int sid, unsigned int amount
 	jobsList.push_back(job);
 	jobCondition.signal();
 	prt->print(Printer::WATCardOffice,'T',sid,amount);
+	return job->result;
 }
 
 WATCardOffice::Job *WATCardOffice::requestWork() {
@@ -87,15 +100,18 @@ WATCardOffice::Job *WATCardOffice::requestWork() {
 	if (jobsList.size()>0)
 	{
 		prt->print(Printer::WATCardOffice,'W');
-		return jobsList[0]; 
+		Job* job = jobsList[0];
+		jobsList.erase(jobsList.begin());
+		return job; 
 	}
 	else {
 		jobCondition.wait();
 	}
-
-
 }
 
 WATCardOffice::~WATCardOffice() {
 	prt->print(Printer::WATCardOffice,'F');
+	for (int i=0;i<numCouriers;i++){
+		delete courierList[i];
+    }
 }

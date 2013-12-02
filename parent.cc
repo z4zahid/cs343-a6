@@ -1,7 +1,8 @@
 ﻿#include "parent.h"
 
+using namespace std;
+
 Parent::Parent( Printer &prt, Bank &bank, unsigned int numStudents, unsigned int parentalDelay ) {
-	prt.print(Printer::Parent,'S');
 	Parent::prt=&prt;
 	Parent::bank=&bank;
 	Parent::numStudents=numStudents;
@@ -9,6 +10,9 @@ Parent::Parent( Printer &prt, Bank &bank, unsigned int numStudents, unsigned int
 }
 
 void Parent::main() {
+
+	prt->print(Printer::Parent,'S');
+
 	MPRNG mprng;
 	for (;;){
 		//check for a call to its destructor to know when to terminate
@@ -19,7 +23,7 @@ void Parent::main() {
 			int randAmt=mprng(1,3);
 			int randStudent=mprng(numStudents-1); 
 		    
-		    this->yield(delay);
+		    yield(delay);
 
 		    prt->print(Printer::Parent,'D',randStudent,randAmt);
 			bank->deposit(randStudent,randAmt);
@@ -28,7 +32,6 @@ void Parent::main() {
 	}
 }
 
-
 Parent::~Parent() {
-	prt.print(Printer::Parent,'F');
+	prt->print(Printer::Parent,'F');
 }

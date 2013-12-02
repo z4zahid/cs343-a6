@@ -35,6 +35,7 @@ _Task WATCardOffice {
     void main();
     Printer *prt;
     Bank *bank; 
+    bool isOfficeClosed;
     int numCouriers;
     std::vector<Job*>jobsList;
     uCondition jobCondition;

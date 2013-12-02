@@ -29,24 +29,24 @@ void BottlingPlant::main() {
 	initShipment();
 
 	while (true) {
+
+		if (shipmentWasPickedUp) {
+			int bottlesProduced = 0;
+			for (int i=0; i<4; i++) {
+				int bottles = rng(maxShippedPerFlavour);
+				shipment[i] = bottles;
+				bottlesProduced += bottles;
+			}
+			printer->print(Printer::BottlingPlant, 'G', bottlesProduced);
+			shipmentWasPickedUp = false;	
+		}
+
 		_Accept(~BottlingPlant) {
 			plantClosingDown = true;
 			break;
 		} or _When(!shipmentWasPickedUp) _Accept(getShipment) {
-
-		} _Else {
-			if (shipmentWasPickedUp) {
-				yield(timeBetweenShipments);
-				int bottlesProduced = 0;
-				for (int i=0; i<4; i++) {
-					int bottles = rng(maxShippedPerFlavour);
-					shipment[i] = bottles;
-					bottlesProduced += bottles;
-				}
-				printer->print(Printer::BottlingPlant, 'G', bottlesProduced);
-				shipmentWasPickedUp = false;	
-			}
-		} 
+			yield(timeBetweenShipments);
+		}
 	}
 
 	printer->print(Printer::BottlingPlant, 'F');

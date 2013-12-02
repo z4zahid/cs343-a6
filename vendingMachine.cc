@@ -37,7 +37,7 @@ void VendingMachine::main() {
 }
 
 VendingMachine::Status VendingMachine::buy(Flavours flavour, WATCard &card) {
-	//should block student if restocking
+
 	Status status = BUY;
 	if (stock[flavour] < 1) {
 		status = STOCK;
@@ -60,7 +60,6 @@ unsigned int *VendingMachine::inventory()  {
 }
 
 void VendingMachine::restocked() {
-	//cannot accept calls until this is called, how to implement?
 	restocking = false;
 	printer->print(Printer::Vending, 'R');
 }
