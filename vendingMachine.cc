@@ -21,7 +21,7 @@ void VendingMachine::initStock() {
 
 void VendingMachine::main() {
 
-	printer->print(Printer::Vending, 'S', sodaPrice);
+	printer->print(Printer::Vending, id, 'S', sodaPrice);
 	initStock();
 
 	while(true) {
