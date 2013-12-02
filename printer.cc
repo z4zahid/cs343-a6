@@ -109,7 +109,7 @@ void Printer::updateStateBufferForIndex(unsigned int stateBufferIndex, char stat
 		flushBuffers();	//overwriting
 	}
 
-	stateBuffer->at(stateBufferIndex) = (data == "")? strin(1,state) : data;
+	stateBuffer->at(stateBufferIndex) = (data == "")? string(1,state) : data;
 
 	if (state == 'F') {
 		printFinishedRow(stateBufferIndex);

@@ -6,11 +6,15 @@
 #include "uFuture.h"
 #include "watcard.h"
 #include "printer.h"
+#include <vector>
+#include "MPRNG.h"
 
 _Task WATCardOffice {
 
     struct Args {
-        //define later
+        int sid;
+        int amt;
+        WATCard *card;
     };
 
     struct Job {                           // marshalled arguments and return future
@@ -20,16 +24,21 @@ _Task WATCardOffice {
     };
     _Task Courier {
         void main();
+        WATCardOffice *office;
+        Printer *prt;
+        Bank *bank; 
         public:
             ~Courier();
-            Courier();
+            Courier(WATCardOffice &office,Printer &prt,Bank &bank);
     };                 // communicates with bank
 
     void main();
     Printer *prt;
     Bank *bank; 
     int numCouriers;
-
+    std::vector<Job*>jobsList;
+    uCondition jobCondition;
+    std::vector<Courier *>courierList;
   public:
     ~WATCardOffice();
     _Event Lost {};                        // uC++ exception type, like "struct"

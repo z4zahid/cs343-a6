@@ -1,6 +1,6 @@
 ﻿#include "watcard.h"
 
-WATCard() {
+WATCard::WATCard() {
     balance=0;
 }
 

@@ -18,51 +18,43 @@ void Student::main() {
     int randFlavour=mprng(3);                                  
     
     prt->print(Printer::Student,'S',randFlavour,randBottles);    
+    WATCard::FWATCard card=cardOffice->create(id,5);
+    VendingMachine *machine;
 
-    while(randBottles>=0){
-        WATCard::FWATCard card=cardOffice->create(id,5);
-        VendingMachine *machine=nameServer->getMachine(id);
+    while (randBottles>=0) {
+
+        machine = nameServer->getMachine(id);
         prt->print(Printer::Student,'V',machine->getId());    
 
-        int randN=mprng(1,10);
-        this->yield(randN);
+        this->yield(mprng(1,10));
 
         int balance=(card())->getBalance();
         int sodaCost=machine->cost(); 
-        VendingMachine::Status status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
-        
-        while (true){
-        	if (status==VendingMachine::BUY)
-	        {
-	            //int newBalance=card.getBalance();
-	            //_When(newBalance==balance-sodaCost) 
-	            //_Accept
-	            int balance=0;//card.getBalance();
-	            prt->print(Printer::Student,'B',balance); 
-	            randBottles--;
-	            status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
-	        }
-	        else if (status==VendingMachine::FUNDS)
-	        {
-	            int randN=mprng(1,10);
-	            this->yield(randN);
-	            cardOffice->transfer(id,sodaCost+5,card);
-	        }
-	        else if (status==VendingMachine::STOCK)
-	        {
-	            /*machine=nameServer->getMachine(id);
-	            int randN=mprng(1,10);
-	            this->yield(randN);
-	            status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
-	            */
-	            break;
-	        }
+       
+        while (true) {
+            VendingMachine::Status status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
+            try { 
+                if (status==VendingMachine::BUY) {
+                    int balance = (card())->getBalance();
+                    prt->print(Printer::Student,'B',balance); 
+                    randBottles--;
+                    break;
+
+                }
+                else if (status==VendingMachine::FUNDS) {
+                    card = cardOffice->transfer(id,sodaCost+5,card);
+                }
+                else if (status==VendingMachine::STOCK) {
+                    machine=nameServer->getMachine(id);
+                }
+            } catch(WATCardOffice::Lost) {
+                //In case of WATCardOffice::Lost exception
+                prt->print(Printer::Student,'L');
+                card = cardOffice->create(id,5);
+                status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
+            }
         }
         
-        //In case of WATCardOffice::Lost exception
-        //prt->print(Printer::Student,'L');
-        //card=cardOffice->create(id,5);
-        //status=machine->buy((VendingMachine::Flavours)randFlavour,*card);
     }
     prt->print(Printer::Student,'F');
 }
