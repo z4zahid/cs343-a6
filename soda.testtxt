@@ -1,1 +1,728 @@
-Test Documentation
+Test 1: with incorrect file names
+
+Input:  ./soda soda
+
+Output: Error: file "soda" is corrupt.
+
+/******************************************************************************************/
+
+Test 2: With seed equal to 0
+
+Input:./soda soda.config 0
+
+Output: ./soda [ config-file [ random-seed ] ]
+
+/******************************************************************************************/
+
+Test 3: With default arguments
+
+Input:./soda
+
+Output:
+
+Parent	WATOff	Names	Truck	Plant	Stud0	Stud1	Mach0	Mach1	Mach2	Cour0	
+******	******	******	******	******	******	******	******	******	******	******	
+S	S	S	   	   	   	   	   	   	   	S	
+D0,3	   	R0	   	   	   	   	S2	   	   	   	
+D0,3	   	R1	   	   	   	   	   	S2	   	   	
+D0,3	   	R2	   	   	   	   	   	   	S2	   	
+D0,3	C0,5	N0,0	S	S	S2,4	   	   	   	   	   	
+   	W	   	   	   	V0	S2,4	   	   	   	t0,5	
+D0,3	C1,5	N1,1	   	   	   	V1	   	   	   	T0,5	
+D1,1	W	   	   	   	   	   	   	   	   	t1,5	
+D1,3	   	N0,1	P0	P	   	   	   	   	   	   	
+D1,1	   	N0,2	   	   	   	   	   	   	   	T1,5	
+D0,1	   	N0,0	   	G2	   	   	   	   	   	   	
+D0,2	   	N0,1	   	   	   	   	   	   	   	   	
+D0,2	   	N1,2	P2	P	   	   	r	   	   	   	
+   	   	   	d0,2	   	   	   	   	   	   	   	
+D1,3	   	N0,2	U0,15	   	   	   	R	   	   	   	
+D0,2	   	N1,0	D0,0	G5	   	B-3	B2,0	   	   	   	
+D1,2	   	N0,0	   	   	   	   	   	   	   	   	
+D1,2	   	   	P5	P	   	   	r	   	   	   	
+   	   	   	d0,5	   	   	   	   	   	   	   	
+D1,1	   	N1,1	U0,15	   	   	V1	R	   	   	   	
+D1,1	   	N0,1	D0,0	G5	   	   	   	   	   	   	
+   	   	N0,2	P5	P	   	   	r	   	   	   	
+   	   	   	d0,5	   	   	   	   	   	   	   	
+D0,2	   	N0,0	U0,15	   	   	   	R	   	   	   	
+   	   	   	D0,1	   	   	   	   	r	   	   	
+   	   	   	d1,1	   	   	   	   	   	   	   	
+D1,1	   	N0,1	U1,15	G5	B-5	   	B2,0	   	   	   	
+D0,2	   	N1,2	D1,0	   	V1	   	   	R	   	   	
+D0,2	   	N1,0	   	   	   	   	   	   	   	   	
+D0,3	   	N0,2	   	   	   	   	   	   	   	   	
+D0,2	   	N1,1	P5	P	   	   	r	   	   	   	
+   	   	   	d0,5	   	   	   	   	   	   	   	
+D0,1	   	N0,0	U0,15	   	   	   	R	   	   	   	
+D0,2	   	N1,2	D0,0	G9	   	   	   	   	   	   	
+D1,2	   	N1,0	P9	P	   	   	r	   	   	   	
+   	   	   	d0,9	   	   	   	   	   	   	   	
+D1,1	   	N0,1	U0,15	   	   	   	R	   	   	   	
+D0,2	   	N0,2	D0,6	G4	   	   	   	r	   	   	
+   	   	   	d1,6	   	   	   	   	   	   	   	
+D1,2	   	N0,0	U1,15	   	   	B-7	B2,1	   	   	   	
+D0,1	   	N1,1	D1,0	   	B-9	V1	B2,0	R	   	   	
+D0,3	   	N0,1	   	   	V1	   	   	   	   	   	
+D0,3	   	N1,2	   	   	   	   	   	   	   	   	
+D0,3	   	N1,0	P4	P	   	   	   	   	   	   	
+D1,3	   	N0,2	d0,4	   	   	   	r	   	   	   	
+D0,3	   	N1,1	U0,15	   	   	   	R	   	   	   	
+D0,3	   	N0,0	D0,3	G6	B-11	   	B2,0	r	   	   	
+   	   	   	d1,3	   	   	   	   	   	   	   	
+D0,2	   	N1,2	U1,15	   	   	   	   	R	   	   	
+D0,3	   	N0,1	D1,0	   	V1	   	   	   	   	   	
+D1,2	   	N1,0	   	   	   	   	   	   	   	   	
+D1,1	   	N1,1	P6	P	   	   	r	   	   	   	
+   	   	   	d0,6	   	   	   	   	   	   	   	
+D1,1	   	N1,2	U0,15	   	   	   	R	   	   	   	
+D0,3	   	N1,0	D0,5	   	   	B-13	B2,0	r	   	   	
+   	   	   	d1,5	   	   	   	   	   	   	   	
+D1,1	   	N0,2	U1,15	G11	   	   	   	R	   	   	
+D0,2	   	N1,1	D1,2	   	   	V1	   	   	r	   	
+   	   	   	d2,2	   	   	   	   	   	   	   	
+D0,1	   	N0,0	U2,15	   	   	   	   	   	R	   	
+D1,2	   	N0,1	D2,0	   	   	   	   	   	   	   	
+D0,3	   	N0,2	P11	P	   	   	r	   	   	   	
+   	   	   	d0,11	   	   	   	   	   	   	   	
+D1,3	   	N0,0	U0,15	   	   	   	R	   	   	   	
+   	   	   	D0,8	   	   	   	   	r	   	   	
+   	   	   	d1,8	   	   	   	   	   	   	   	
+D1,3	   	N0,1	U1,15	G7	B-15	   	B2,2	   	   	   	
+   	   	   	D1,6	   	V1	   	   	R	r	   	
+   	   	   	d2,6	   	   	   	   	   	   	   	
+D0,3	   	N1,2	U2,15	   	   	   	   	   	R	   	
+D0,1	   	N0,2	D2,0	   	   	   	   	   	   	   	
+D1,2	   	N1,0	   	   	   	B-17	B2,1	   	   	   	
+D1,2	   	N1,1	   	   	   	V1	   	   	   	   	
+D1,2	   	N0,0	   	   	B-19	   	B2,0	   	   	   	
+...	...	...	...	...	F	...	...	...	...	...	
+D1,3	   	   	P7	P	   	   	r	   	   	   	
+   	   	   	d0,7	   	   	   	   	   	   	   	
+D0,2	   	N1,2	U0,15	   	   	   	R	   	   	   	
+   	   	   	D0,4	   	   	   	   	r	   	   	
+   	   	   	d1,4	   	   	   	   	   	   	   	
+D0,3	   	N1,0	U1,15	G6	   	B-21	B2,2	   	   	   	
+...	...	...	...	...	...	F	...	...	...	...	
+   	   	   	D1,4	   	   	   	   	R	r	   	
+   	   	   	d2,4	   	   	   	   	   	   	   	
+...	...	...	...	F	...	...	...	...	...	...	
+D0,1	   	   	D2,2	   	   	   	   	   	R	   	
+D0,1	   	   	   	   	   	   	   	   	   	   	
+...	...	...	F	...	...	...	...	...	...	...	
+...	...	...	...	...	...	...	F	...	...	...	
+...	...	...	...	...	...	...	...	F	...	...	
+...	...	...	...	...	...	...	...	...	F	...	
+...	...	F	...	...	...	...	...	...	...	...	
+D0,1	   	   	   	   	   	   	   	   	   	   	
+...	F	...	...	...	...	...	...	...	...	...	
+...	...	...	...	...	...	...	...	...	...	F	
+D1,3	   	   	   	   	   	   	   	   	   	   	
+F	...	...	...	...	...	...	...	...	...	...	
+***********************
+
+
+/******************************************************************************************/
+
+Test 4: With user provided arguments
+
+Input:./soda soda.config 62017
+
+Output:
+
+Parent	WATOff	Names	Truck	Plant	Stud0	Stud1	Mach0	Mach1	Mach2	Cour0	
+******	******	******	******	******	******	******	******	******	******	******	
+S	S	S	   	   	   	   	   	   	   	S	
+D0,3	   	R0	   	   	   	   	S2	   	   	   	
+D0,3	   	R1	   	   	   	   	   	S2	   	   	
+D0,3	   	R2	   	   	   	   	   	   	S2	   	
+D0,3	C0,5	N0,0	S	S	S2,4	   	   	   	   	   	
+   	W	   	   	   	V0	S2,4	   	   	   	t0,5	
+D0,3	C1,5	N1,1	   	   	   	V1	   	   	   	T0,5	
+D1,1	W	   	   	   	   	   	   	   	   	t1,5	
+D1,3	   	N0,1	P0	P	   	   	   	   	   	   	
+D1,1	   	N0,2	   	   	   	   	   	   	   	T1,5	
+D0,1	   	N0,0	   	G2	   	   	   	   	   	   	
+D0,2	   	N0,1	   	   	   	   	   	   	   	   	
+D0,2	   	N1,2	P2	P	   	   	r	   	   	   	
+   	   	   	d0,2	   	   	   	   	   	   	   	
+D1,3	   	N0,2	U0,15	   	   	   	R	   	   	   	
+D0,2	   	N1,0	D0,0	G5	   	B-3	B2,0	   	   	   	
+D1,2	   	N0,0	   	   	   	   	   	   	   	   	
+D1,2	   	   	P5	P	   	   	r	   	   	   	
+   	   	   	d0,5	   	   	   	   	   	   	   	
+D1,1	   	N1,1	U0,15	   	   	V1	R	   	   	   	
+D1,1	   	N0,1	D0,0	G5	   	   	   	   	   	   	
+   	   	N0,2	P5	P	   	   	r	   	   	   	
+   	   	   	d0,5	   	   	   	   	   	   	   	
+D0,2	   	N0,0	U0,15	   	   	   	R	   	   	   	
+   	   	   	D0,1	   	   	   	   	r	   	   	
+   	   	   	d1,1	   	   	   	   	   	   	   	
+D1,1	   	N0,1	U1,15	G5	B-5	   	B2,0	   	   	   	
+D0,2	   	N1,2	D1,0	   	V1	   	   	R	   	   	
+D0,2	   	N1,0	   	   	   	   	   	   	   	   	
+D0,3	   	N0,2	   	   	   	   	   	   	   	   	
+D0,2	   	N1,1	P5	P	   	   	r	   	   	   	
+   	   	   	d0,5	   	   	   	   	   	   	   	
+D0,1	   	N0,0	U0,15	   	   	   	R	   	   	   	
+D0,2	   	N1,2	D0,0	G9	   	   	   	   	   	   	
+D1,2	   	N1,0	P9	P	   	   	r	   	   	   	
+   	   	   	d0,9	   	   	   	   	   	   	   	
+D1,1	   	N0,1	U0,15	   	   	   	R	   	   	   	
+D0,2	   	N0,2	D0,6	G4	   	   	   	r	   	   	
+   	   	   	d1,6	   	   	   	   	   	   	   	
+D1,2	   	N0,0	U1,15	   	   	B-7	B2,1	   	   	   	
+D0,1	   	N1,1	D1,0	   	B-9	V1	B2,0	R	   	   	
+D0,3	   	N0,1	   	   	V1	   	   	   	   	   	
+D0,3	   	N1,2	   	   	   	   	   	   	   	   	
+D0,3	   	N1,0	P4	P	   	   	   	   	   	   	
+D1,3	   	N0,2	d0,4	   	   	   	r	   	   	   	
+D0,3	   	N1,1	U0,15	   	   	   	R	   	   	   	
+D0,3	   	N0,0	D0,3	G6	B-11	   	B2,0	r	   	   	
+   	   	   	d1,3	   	   	   	   	   	   	   	
+D0,2	   	N1,2	U1,15	   	   	   	   	R	   	   	
+D0,3	   	N0,1	D1,0	   	V1	   	   	   	   	   	
+D1,2	   	N1,0	   	   	   	   	   	   	   	   	
+D1,1	   	N1,1	P6	P	   	   	r	   	   	   	
+   	   	   	d0,6	   	   	   	   	   	   	   	
+D1,1	   	N1,2	U0,15	   	   	   	R	   	   	   	
+D0,3	   	N1,0	D0,5	   	   	B-13	B2,0	r	   	   	
+   	   	   	d1,5	   	   	   	   	   	   	   	
+D1,1	   	N0,2	U1,15	G11	   	   	   	R	   	   	
+D0,2	   	N1,1	D1,2	   	   	V1	   	   	r	   	
+   	   	   	d2,2	   	   	   	   	   	   	   	
+D0,1	   	N0,0	U2,15	   	   	   	   	   	R	   	
+D1,2	   	N0,1	D2,0	   	   	   	   	   	   	   	
+D0,3	   	N0,2	P11	P	   	   	r	   	   	   	
+   	   	   	d0,11	   	   	   	   	   	   	   	
+D1,3	   	N0,0	U0,15	   	   	   	R	   	   	   	
+   	   	   	D0,8	   	   	   	   	r	   	   	
+   	   	   	d1,8	   	   	   	   	   	   	   	
+D1,3	   	N0,1	U1,15	G7	B-15	   	B2,2	   	   	   	
+   	   	   	D1,6	   	V1	   	   	R	r	   	
+   	   	   	d2,6	   	   	   	   	   	   	   	
+D0,3	   	N1,2	U2,15	   	   	   	   	   	R	   	
+D0,1	   	N0,2	D2,0	   	   	   	   	   	   	   	
+D1,2	   	N1,0	   	   	   	B-17	B2,1	   	   	   	
+D1,2	   	N1,1	   	   	   	V1	   	   	   	   	
+D1,2	   	N0,0	   	   	B-19	   	B2,0	   	   	   	
+...	...	...	...	...	F	...	...	...	...	...	
+D1,3	   	   	P7	P	   	   	r	   	   	   	
+   	   	   	d0,7	   	   	   	   	   	   	   	
+D0,2	   	N1,2	U0,15	   	   	   	R	   	   	   	
+   	   	   	D0,4	   	   	   	   	r	   	   	
+   	   	   	d1,4	   	   	   	   	   	   	   	
+D0,3	   	N1,0	U1,15	G6	   	B-21	B2,2	   	   	   	
+...	...	...	...	...	...	F	...	...	...	...	
+   	   	   	D1,4	   	   	   	   	R	r	   	
+   	   	   	d2,4	   	   	   	   	   	   	   	
+...	...	...	...	F	...	...	...	...	...	...	
+D0,1	   	   	D2,2	   	   	   	   	   	R	   	
+D0,1	   	   	   	   	   	   	   	   	   	   	
+...	...	...	F	...	...	...	...	...	...	...	
+...	...	...	...	...	...	...	F	...	...	...	
+...	...	...	...	...	...	...	...	F	...	...	
+...	...	...	...	...	...	...	...	...	F	...	
+...	...	F	...	...	...	...	...	...	...	...	
+D0,1	   	   	   	   	   	   	   	   	   	   	
+...	F	...	...	...	...	...	...	...	...	...	
+...	...	...	...	...	...	...	...	...	...	F	
+D1,3	   	   	   	   	   	   	   	   	   	   	
+F	...	...	...	...	...	...	...	...	...	...	
+***********************
+
+/******************************************************************************************/
+
+Test 5: One student with same amount of maxPurchases as the vending machinces and maxFlavour is just 1
+(To check that student is buying from the second vending machine only when the first one is out of stock) 
+
+Soda.config:
+
+SodaCost                1    # Manufacturer Suggested Retail Price (MSRP) per bottle
+NumStudents             1    # number of students to create
+MaxPurchases            11    # maximum number of bottles a student purchases
+NumVendingMachines      10    # number of vending machines
+MaxStockPerFlavour      5    # maximum number of bottles of each flavour in a vending machine
+MaxShippedPerFlavour    1    # maximum number of bottles of each flavour generated by the bottling
+                             #    plant per production run
+TimeBetweenShipments    3    # length of time between shipment pickup
+ParentalDelay           1    # length of time between new deposits of funds
+NumCouriers             3    # maximum number of couriers in the pool
+~                                                                       
+
+Input:./soda soda.config 
+
+Output:
+
+Parent   WATOff   Names Truck Plant Stud0 Mach0 Mach1 Mach2 Mach3 Mach4 Mach5 Mach6 Mach7 Mach8 Mach9 Cour0 Cour1 Cour2
+*******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******  *******
+S  S  S
+D0,3                                               S  S  S
+D0,3     R0          S1
+D0,2
+D0,3     R1             S1
+D0,2     R2                S1
+D0,1
+D0,1     R3                   S1
+D0,1
+D0,2     R4                      S1
+D0,1
+D0,3     R5                         S1
+D0,3
+D0,2     R6                            S1
+D0,1
+D0,1     R7                               S1
+D0,3
+D0,2     R8                                  S1
+D0,2
+D0,3     R9    S  S3,7                             S1
+D0,3  C0,5  N0,0  S     V0
+D0,2                                               t0,5
+D0,2  W        G1                                  T0,5
+D0,2              V1
+D0,2     N0,1
+D0,3
+D0,2
+D0,1              V2
+D0,2     N0,2
+D0,2        P1
+         d0,1
+         U0,19
+D0,2        D0,0  P     r
+D0,2
+D0,1                 R
+D0,2           G3
+D0,2        P3
+         d0,3
+         U0,16
+D0,2     N0,3  D0,0  P  V3 r
+D0,2
+D0,1                 R
+D0,2           G1
+D0,1        P1
+         d0,1
+         U0,15
+D0,1        D0,0  P     r
+D0,3              V4
+D0,3     N0,4           R
+D0,2           G2 V5
+D0,1     N0,5
+D0,2              V6
+D0,2     N0,6
+D0,2
+D0,1        P2
+         d0,2
+         U0,13
+D0,1        D0,0  P     r
+D0,3              V7
+D0,2     N0,7           R
+D0,3           G2
+D0,1
+D0,1
+D0,1        P2
+         d0,2
+         U0,11
+D0,3        D0,0  P     r
+D0,2              V8
+D0,2     N0,8           R
+D0,2           G2
+D0,1
+D0,2
+D0,2              V9
+D0,3     N0,9
+D0,3              V0
+D0,3        P2
+         d0,2
+         U0,9
+D0,1     N0,0  D0,0  P     r
+D0,3
+D0,2                 R
+D0,3           G1
+D0,3              B4
+D0,1              B3 B3,3
+D0,3        P1       B3,2
+D0,1        d0,1  P
+         U0,10
+D0,3        D0,0        r
+D0,2
+D0,3           G0 B2 R
+D0,3        P0       B3,1
+D0,3           P
+D0,3
+D0,1
+D0,2           G0
+D0,2        P0
+D0,3           P  B1
+D0,1                 B3,0
+D0,2
+D0,2           G1
+D0,3        P1
+         d0,1
+         U0,11
+D0,1        D0,0  P     r
+D0,3
+D0,2                 R
+D0,3           G3 V1
+D0,1     N0,1
+D0,2
+D0,3
+D0,3
+D0,2        P3
+         d0,3
+         U0,8
+D0,1        D0,0  P  V2 r
+D0,3     N0,2
+D0,3                 R
+D0,3           G1
+D0,1
+D0,2
+D0,3
+D0,3        P1
+         d0,1
+         U0,7
+D0,1        D0,0  P  V3 r
+D0,1     N0,3
+D0,2                 R
+D0,1           G4
+D0,1              V4
+D0,3     N0,4  P4
+         d0,4
+         U0,5
+D0,1        D0,2  P     r
+D0,1        d1,2
+         U1,18
+D0,1        D1,0        R  r
+D0,2           G1
+D0,1              V5    R
+D0,2     N0,5
+D0,1
+D0,3
+D0,3
+D0,2
+D0,1
+D0,3
+D0,2        P1
+         d0,1
+         U0,5
+D0,3        D0,1  P     r
+D0,3        d1,1     V6
+         U1,17
+D0,3     N0,6  D1,0     V7 R  r
+D0,2     N0,7     G3
+D0,3                    R
+D0,2              V8
+D0,2     N0,8
+D0,2
+D0,3
+D0,1
+D0,3
+D0,2
+D0,1        P3
+         d0,3
+         U0,4
+D0,3        D0,2  P     r
+D0,2        d1,2     V9
+         U1,15
+D0,3     N0,9  D1,0        R  r
+D0,1           G1
+D0,3                    R
+D0,3              V0
+D0,2     N0,0
+D0,2
+D0,1        P1    B0
+D0,1           P     B3,0
+D0,1        d0,1
+         U0,5
+D0,2        D0,1        r
+D0,3        d1,1
+         U1,14
+D0,1        D1,0  G2    R  r
+D0,3
+D0,2                    R
+D0,3
+D0,1              V1
+D0,3     N0,1
+D0,2
+D0,2
+D0,3        P2
+         d0,2
+         U0,4
+D0,2        D0,1  P     r
+D0,3        d1,1
+         U1,13
+D0,1        D1,0        R  r
+D0,1           G2
+D0,2                    R
+D0,2              V2
+D0,3     N0,2
+D0,1
+D0,3        P2
+         d0,2
+         U0,4
+D0,1        D0,2  P     r
+D0,3        d1,2
+         U1,11
+D0,3        D1,0        R  r
+D0,1           G2
+D0,1                    R
+D0,3              V3
+D0,1     N0,3
+D0,3        P2
+         d0,2
+         U0,3
+D0,2        D0,1  P     r
+D0,1        d1,1     V4
+         U1,10
+D0,3     N0,4  D1,0        R  r
+D0,3           G3
+D0,2                    R
+D0,3
+D0,1
+D0,3              V5
+D0,2     N0,5
+D0,1
+D0,3
+D0,3        P3
+         d0,3
+         U0,3
+D0,3        D0,3  P  V6 r
+D0,1     N0,6  d1,3
+         U1,8
+D0,3        D1,1        R  r
+D0,2        d2,1  G3
+         U2,19
+D0,3        D2,0           R  r
+D0,3
+D0,3                       R
+D0,1
+D0,1              V7
+D0,1     N0,7
+D0,3        P3    V8
+         d0,3
+         U0,2
+D0,3     N0,8  D0,2  P     r
+D0,1        d1,2
+         U1,8
+D0,2        D1,2        R  r
+D0,2        d2,2  G3
+         U2,17
+D0,3        D2,0           R  r
+D0,2
+D0,2                       R
+D0,2              V9
+D0,1     N0,9  P3
+         d0,3
+         U0,2
+D0,1        D0,3  P     r
+D0,2        d1,3
+         U1,7
+D0,1        D1,2        R  r
+D0,3        d2,2  G2
+         U2,15
+D0,3        D2,0           R  r
+D0,2              V0
+D0,3     N0,0                 R
+D0,1
+D0,3
+D0,3
+D0,2
+D0,2  T0,6     P2
+         d0,2
+         U0,2
+D0,3        D0,2                                         t0,6
+D0,3  W     d1,2  P     r                                T0,6
+         U1,6
+D0,3        D1,1        R  r
+D0,2        d2,1  G2 B5
+         U2,14
+
+
+.
+.
+. (removed some output to meet the 750 lines requirement.)
+
+D0,2
+...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   F
+D0,1
+D0,3
+...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   F  ...   ...
+D0,2
+D0,2
+...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   F  ...
+D0,3
+...   F  ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+D0,3
+F  ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+***********************
+
+/******************************************************************************************/
+
+Test 6: To check that the student is buying from only one vending machine, since the MaxPurchases<NumVendingMachines and maxFlavour is just 1
+
+soda.config
+
+SodaCost                1    # Manufacturer Suggested Retail Price (MSRP) per bottle
+NumStudents             1    # number of students to create
+MaxPurchases            2    # maximum number of bottles a student purchases
+NumVendingMachines      5    # number of vending machines
+MaxStockPerFlavour      5    # maximum number of bottles of each flavour in a vending machine
+MaxShippedPerFlavour    1    # maximum number of bottles of each flavour generated by the bottling
+                             #    plant per production run
+TimeBetweenShipments    3    # length of time between shipment pickup
+ParentalDelay           1    # length of time between new deposits of funds
+NumCouriers             3    # maximum number of couriers in the pool
+
+Input:./soda
+
+Output:
+
+Parent   WATOff   Names Truck Plant Stud0 Stud1 Mach0 Mach1 Mach2 Cour0 
+******   ******   ******   ******   ******   ******   ******   ******   ******   ******   ******   
+S  S  S                                            S  
+D0,3        R0                         S2                   
+D0,3        R1                               S2             
+D0,3        R2                                     S2       
+D0,3  C0,5  N0,0  S  S  S2,4                                
+      W                    V0 S2,4                    t0,5  
+D0,3  C1,5  N1,1                    V1                   T0,5  
+D1,1  W                                                  t1,5  
+D1,3        N0,1  P0 P                                      
+D1,1        N0,2                                            T1,5  
+D0,1        N0,0        G2                                     
+D0,2        N0,1                                                  
+D0,2        N1,2  P2 P              r                    
+                  d0,2                                            
+D1,3        N0,2  U0,6                    R                    
+D0,2        N1,0  D0,0  G5       B3 B2,0                    
+D1,2        N0,0                                                  
+D1,2              P5 P              r                    
+                  d0,5                                            
+D1,1        N1,1  U0,6              V1 R                    
+                  D0,1                          r              
+                  d1,1                                            
+D1,1        N0,1  U1,6  G4                   R              
+D1,2        N0,2  D1,0                                            
+D1,1        N0,0  P4 P                                      
+D0,2        N0,1  d0,4                    r                    
+D0,3        N1,2  D0,1                    R  r              
+                  d1,1                                            
+D0,3        N0,2  U1,6  G6                   R              
+D0,3        N1,0  D1,0              B1 B2,1                    
+D0,1        N0,0              B3       B2,0                    
+D1,2  T1,7  N1,1                    V1                         
+D1,2  W  N0,1              V1                         t1,7  
+D1,2  C1,5  N0,2              B1 L        B2,0        T1,7  
+                  P6 P  V2       r                    
+                  d0,6                                            
+      W        U0,6                                      t1,5  
+D1,2        N1,2  D0,6                    R              T1,5  
+D1,1        N1,0  d1,6                          r              
+D1,3        N1,1  U1,6  G4                   R              
+D1,2              D1,1                                r        
+                  d2,1                                            
+D0,3        N0,0  U2,6                                R        
+D1,3        N0,1  D2,0                                            
+D1,2        N1,2                                                  
+            N0,2  P4 P              r                    
+                  d0,4                                            
+D0,1        N1,0  U0,6                    R                    
+                  D0,3                          r              
+                  d1,3                                            
+D1,2        N0,0  U1,6  G6       B3 B2,0  R              
+                  D1,3                                r        
+                  d2,3                                            
+D1,2        N1,1  U2,6              V1             R        
+D0,2        N0,1  D2,0                                            
+D1,2              P6 P              r                    
+                  d0,6                                            
+D1,2        N0,2  U0,6                    R                    
+                  D0,6                          r              
+                  d1,6                                            
+D1,1        N0,0  U1,6  G6                                     
+            N0,1  D1,6                          R  r        
+                  d2,6                                            
+D1,3        N1,2  U2,6                                R        
+D1,2        N0,2  D2,4  P                                      
+                  P6                   r                    
+D0,1        N1,0  d0,6                    R                    
+                  D0,4                          r              
+                  d1,4                                            
+D0,2        N0,0  U1,6  G7       B1 B2,1  R              
+                  D1,4                                r        
+                  d2,4                                            
+D0,1  T0,7  N1,1  U2,6              V1             R        
+      W        D2,4                                      t0,7  
+D0,3                                      B2,0              T0,7  
+D0,3        N1,2              B6                               
+D0,3        N1,0  P7 P                                      
+D1,1        N0,1  d0,7        V1       r                    
+D0,2        N1,1  D0,5  G7             R                    
+D0,3        N0,2  d1,5                          r              
+D1,2        N1,2  U1,6                          R              
+                  D1,4                                r        
+                  d2,4                                            
+D1,3        N0,0  U2,6        B4       B2,1        R        
+D1,1  T1,7  N1,0  D2,4                                            
+      W                                                  t1,7  
+D0,3        N0,1              V1       B2,0              T1,7  
+D1,1                                B6                         
+...   ...   ...   ...   ...   ...   F  ...   ...   ...   ...   
+D1,1                                                              
+D0,1              P7 P              r                    
+D1,2              d0,7                    R                    
+                  D0,5                          r              
+D0,3              d1,5  G11                     R              
+                  D1,4                                r        
+                  d2,4                                            
+D1,2              U2,6        B2             B2,1              
+...   ...   ...   ...   ...   F  ...   ...   ...   ...   ...   
+D0,3              D2,4                                R        
+F  ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   
+...   ...   ...   ...   F  ...   ...   ...   ...   ...   ...   
+...   ...   ...   F  ...   ...   ...   ...   ...   ...   ...   
+...   ...   ...   ...   ...   ...   ...   F  ...   ...   ...   
+...   ...   ...   ...   ...   ...   ...   ...   F  ...   ...   
+...   ...   ...   ...   ...   ...   ...   ...   ...   F  ...   
+...   ...   F  ...   ...   ...   ...   ...   ...   ...   ...   
+...   F  ...   ...   ...   ...   ...   ...   ...   ...   ...   
+...   ...   ...   ...   ...   ...   ...   ...   ...   ...   F  
+***********************
+/******************************************************************************************/
+
+Test 7: 
+
+Stess - testing
+
+
+SodaCost                1    # Manufacturer Suggested Retail Price (MSRP) per bottle
+NumStudents             50    # number of students to create
+MaxPurchases            2    # maximum number of bottles a student purchases
+NumVendingMachines      3    # number of vending machines
+MaxStockPerFlavour      5    # maximum number of bottles of each flavour in a vending machine
+MaxShippedPerFlavour    7    # maximum number of bottles of each flavour generated by the bottling
+                             #    plant per production run
+TimeBetweenShipments    3    # length of time between shipment pickup
+ParentalDelay           1    # length of time between new deposits of fundsNumCouriers
+NumCouriers             3    # maximum number of couriers in the pool
+
+
+The output is too large for the test doc, however, the point of stress testing was to make sure the program runs with extreme input values.
+With 50 students and 7 flavours, we DID NOT get any deadlocks. It DID NOT throw any error saying that 
+the exceptions weren't handled properly. The program ran to completion without any memory leaks.
+
+
+/******************************************************************************************/
+
+Analysis:
+
+There were multiple test runs to validate input and make sure that incorrect input
+was handled with error.
+
+Multiple tests were done to make sure that it runs smoothly without any deadlocks.
+
+During testing we realized there was a deadlock when the bottlingPlant was finished because the truck wanted to access the getShipment method so it was blocked on the bottlingPlant but the bottlingPlant had finished. How we solved it was we allowed the truck to access getShipment method one last time after that bottlingPlant was finished so that it could terminate properly.
+
+Tried testing for 10 students with only 1 vending machine. The result for students was uniformly spread out. Different students accessed the vending machine uniformly instead of just one student requesting it again and again.
+
+
+/******************************************************************************************/
