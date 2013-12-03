@@ -21,7 +21,6 @@ _Task WATCardOffice {
         Args args;                         // call arguments (YOU DEFINE "Args")
         WATCard::FWATCard result;                   // return future
         Job( Args args ) : args( args ) {}
-        ~Job() {delte args.card;}
     };
     _Task Courier {
         void main();
