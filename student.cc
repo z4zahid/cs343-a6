@@ -30,9 +30,6 @@ void Student::main() {
         prt->print(Printer::Student,id,'V',machine->getId());    
 
         yield(mprng(1,10));
-
-        int balance=(card())->getBalance();
-        int sodaCost=machine->cost(); 
        
         while (true) {
             try { 
@@ -44,11 +41,11 @@ void Student::main() {
                     break;
 
                 } else if (status==VendingMachine::FUNDS) {
-                    card = cardOffice->transfer(id,sodaCost+5,card());
+                    card = cardOffice->transfer(id,machine->cost()+5,card());
                 } else if (status==VendingMachine::STOCK) {
                     machine=nameServer->getMachine(id);
                 }
-            } catch(WATCardOffice::Lost) {
+            } catch(WATCardOffice::Lost event) {
                 //In case of WATCardOffice::Lost exception
                 prt->print(Printer::Student,id,'L');
                 card = cardOffice->create(id,5);

@@ -39,7 +39,7 @@ void WATCardOffice::Courier::main(){
 		int randN=mprng(1,6);
 		if (randN==1){										//One-sixth probability
 			delete card;
-			job->result.exception(new WATCardOffice::Lost);
+			job->result.exception(new WATCardOffice::Lost());
 		} else {
 			job->result.delivery(card);
 		}
